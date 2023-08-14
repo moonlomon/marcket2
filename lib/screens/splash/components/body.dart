@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:marcket2/constants.dart';
-import 'package:marcket2/screens/components/splash_content.dart';
+import 'package:marcket2/screens/sign_in/sign_in_screen.dart';
+
+import 'package:marcket2/screens/splash/components/splash_content.dart';
 import 'package:marcket2/size_config.dart';
 
-import '../../components/default_button.dart';
+import '../../../components/default_button.dart';
 
 class Body extends StatefulWidget {
   const Body({Key? key}) : super(key: key);
@@ -47,24 +49,33 @@ class _BodyState extends State<Body> {
                   itemCount: splashData.length,
                   itemBuilder: (context, index) => SplashContent(
                         text: splashData[index]["text"] ??
-                            "Welcome to Tokoto, Let’s shop!", // 오류 : 문자열 대체값 적용
+                            "Welcome to Tokoto, Let’s shop!",
+                        // ?? 오류 : 문자열 대체값 적용
                         image: splashData[index]["image"] ??
                             "assets/images/splash_1.png",
                       ))),
           Expanded(
             flex: 2,
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+              padding: EdgeInsets.symmetric(
+                  horizontal: getProportionateScreenWidth(20)),
               child: Column(
                 children: <Widget>[
                   Spacer(),
-                  // ?? Widget하는 이유
+                  // ?? Widget하는 이유 : 리스트 내부의 요소들이 위젯타입임을 명시
                   Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: List.generate(
-                          splashData.length, (index) => buildDot(index: index))),
-                  Spacer(flex: 2,),
-                  DefaultButton(text: "Continue", press: (){},),
+                      children: List.generate(splashData.length,
+                          (index) => buildDot(index: index))),
+                  Spacer(
+                    flex: 2,
+                  ),
+                  DefaultButton(
+                    text: "Continue",
+                    press: () {
+                      Navigator.pushNamed(context, SignInScreen.routeName);
+                    },
+                  ),
                   Spacer()
                 ],
               ),
@@ -87,5 +98,3 @@ class _BodyState extends State<Body> {
     );
   }
 }
-
-

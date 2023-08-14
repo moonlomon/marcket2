@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:marcket2/constants.dart';
 import 'package:marcket2/routs.dart';
-import 'package:marcket2/screens/splash_screen.dart';
+import 'package:marcket2/screens/splash/splash_screen.dart';
+import 'package:marcket2/theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,19 +19,14 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
-        theme: ThemeData(
-          scaffoldBackgroundColor: Colors.white,
-          fontFamily: "Muli",
-          textTheme: TextTheme(
-            bodyText1: TextStyle(color: kTextColor),
-            bodyText2: TextStyle(color: kTextColor),
-          ),
-          visualDensity: VisualDensity.adaptivePlatformDensity,//??
-        ),
+        theme: theme(),
         // home: SplashScreen(),
-        initialRoute: SplashScreen.routeName, // 첫 화면 => 홈 역할
+        initialRoute: SplashScreen.routeName,
+        // 첫 화면 => 홈 역할
         routes: routes, // 라우트 딕셔너리를 지정
       ),
     );
   }
+
+
 }
