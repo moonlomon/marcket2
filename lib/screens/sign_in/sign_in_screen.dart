@@ -11,8 +11,8 @@ class SignInScreen extends StatelessWidget {
       // 메인에서 앱바의 속성을 설정
       appBar: AppBar(
         centerTitle: true,
-        automaticallyImplyLeading: false,
         title: Text("Sign In"),
+        automaticallyImplyLeading: false,
         leading: IconButton(icon: Icon(Icons.arrow_back_ios), onPressed: (){Navigator.pop(context);}),
       ),
       body: Body(),
