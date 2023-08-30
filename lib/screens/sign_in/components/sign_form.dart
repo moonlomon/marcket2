@@ -67,7 +67,7 @@ class _SignFormState extends State<SignForm> {
           DefaultButton(
             text: "Continue",
             press: () {
-              if (_formKey.currentState!.validate()) {
+              if (_formKey.currentState!.validate() && errors.isEmpty) {
                 _formKey.currentState?.save(); // ??
                 Navigator.popAndPushNamed(context, LoginSuccessScreen.routeName);
               }

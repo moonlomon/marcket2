@@ -27,7 +27,7 @@ class Body extends StatelessWidget {
                       fontSize: getProportionateScreenHeight(28),
                       color: Colors.black)),
               Text(
-                "Please enter your email and we will\nsend you a link to return to your account",
+                "Please enter your email and we will send\nyou a link to return to your account",
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: SizeConfig.screenHeight * 0.1,),
