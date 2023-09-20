@@ -1,37 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:marcket2/screens/complete_profile/compleate_profile_screen.dart';
 
+import '../../../components/custom_suffix_icon.dart';
 import '../../../components/default_button.dart';
 import '../../../components/form_error.dart';
 import '../../../constants.dart';
 import '../../../size_config.dart';
-import '../../../components/custom_suffix_icon.dart';
 import '../../forget_password/forget_password_screen.dart';
 import '../../login_success/login_success_screen.dart';
 
-class SignForm extends StatefulWidget {
-  const SignForm({Key? key}) : super(key: key);
+class SignUpForm extends StatefulWidget {
+  const SignUpForm({Key? key}) : super(key: key);
 
   @override
-  State<SignForm> createState() => _SignFormState();
+  State<SignUpForm> createState() => _SignUpFormState();
 }
 
-class _SignFormState extends State<SignForm> {
+class _SignUpFormState extends State<SignUpForm> {
   // *textFormFeild 생성 시 기본 세팅
   final _formKey = GlobalKey<FormState>();
   late String email; // ?? late?
-  late String password;
+  late String password = '';
+  late String conform_password;
   late bool remember = false;
   final List<String> errors = [];
 
-  void addError(value) {
+  void addError(error) {
     setState(() {
-      errors.add(value);
+      errors.add(error);
     });
   }
 
-  void removeError(vale) {
+  void removeError(error) {
     setState(() {
-      errors.remove(vale);
+      errors.remove(error);
     });
   }
 
@@ -50,27 +52,9 @@ class _SignFormState extends State<SignForm> {
           SizedBox(
             height: getProportionateScreenHeight(20),
           ),
-          Row(
-            children: [
-              Checkbox(
-                value: remember,
-                onChanged: (value) {
-                  setState(() {
-                    remember = value!;
-                  });
-                },
-                activeColor: kPrimaryColor,
-              ),
-              Text("Remember Me"),
-              Spacer(),
-              GestureDetector(
-                  onTap: () => Navigator.pushNamed(
-                      context, ForgotPasswordScreen.routeName),
-                  child: Text(
-                    "Forgot Password",
-                    style: TextStyle(decoration: TextDecoration.underline),
-                  ))
-            ],
+          buildConformPassFormField(),
+          SizedBox(
+            height: getProportionateScreenHeight(20),
           ),
           FormError(errors: errors),
           SizedBox(
@@ -81,11 +65,45 @@ class _SignFormState extends State<SignForm> {
             press: () {
               if (_formKey.currentState!.validate() && errors.isEmpty) {
                 _formKey.currentState?.save(); // ??
-                Navigator.popAndPushNamed(context, LoginSuccessScreen.routeName);
+                Navigator.pushNamed(context, CompleteProfileScreen.routeName);
               }
             },
           )
         ],
+      ),
+    );
+  }
+
+
+  TextFormField buildConformPassFormField() {
+    return TextFormField(
+      obscureText: true,
+      onSaved: (newValue) => conform_password = newValue!,
+      onChanged: (value) {
+        if (value.isNotEmpty && errors.contains(kConformPassNullError)) {
+          removeError(kConformPassNullError);
+          // print(password);
+        } else if (password == value && errors.contains(kMatchPassError)) {
+          removeError(kMatchPassError);
+        }
+        conform_password = value;
+      },
+      validator: (value) {
+        if (value!.isEmpty && !errors.contains(kConformPassNullError)) {
+          addError(kConformPassNullError);
+          return "";
+        }
+        else if (password != value && !errors.contains(kMatchPassError)) {
+          addError(kMatchPassError);
+          return "";
+        }
+        return null;
+      },
+      decoration: InputDecoration(
+        labelText: "Confirm Password",
+        hintText: "Re-enter your password",
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        suffixIcon: CustomSuffixIcon(svgIcon: "assets/icons/Lock.svg"),
       ),
     );
   }
@@ -106,6 +124,9 @@ class _SignFormState extends State<SignForm> {
           // ??
           removeError(kShortPassError);
         }
+        setState(() {
+          password = value;
+        });
         return null; // ?? return을 안넣어주면 리스트가 계속 추가됨
       },
       validator: (value) {

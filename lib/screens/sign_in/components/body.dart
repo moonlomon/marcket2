@@ -8,7 +8,7 @@ import 'package:marcket2/screens/sign_in/components/sign_form.dart';
 import 'package:marcket2/screens/sign_in/components/socal_card.dart';
 import 'package:marcket2/size_config.dart';
 
-import 'no_account_text.dart';
+import '../../../components/no_account_text.dart';
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);

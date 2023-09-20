@@ -5,7 +5,7 @@ import '../../../components/default_button.dart';
 import '../../../components/form_error.dart';
 import '../../../constants.dart';
 import '../../../size_config.dart';
-import '../../sign_in/components/no_account_text.dart';
+import '../../../components/no_account_text.dart';
 
 class ForgotPassForm extends StatefulWidget {
   const ForgotPassForm({Key? key}) : super(key: key);

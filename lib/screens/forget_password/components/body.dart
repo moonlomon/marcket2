@@ -5,7 +5,7 @@ import '../../../components/custom_suffix_icon.dart';
 import '../../../components/default_button.dart';
 import '../../../components/form_error.dart';
 import '../../../constants.dart';
-import '../../sign_in/components/no_account_text.dart';
+import '../../../components/no_account_text.dart';
 import 'forget_pass_form.dart';
 
 class Body extends StatelessWidget {
