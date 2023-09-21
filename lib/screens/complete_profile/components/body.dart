@@ -31,15 +31,12 @@ class Body extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               SizedBox(
-                height: SizeConfig.screenHeight * 0.08,
+                height: SizeConfig.screenHeight * 0.05,
               ),
               CompleteProfileForm(),
               SizedBox(
-                height: SizeConfig.screenHeight * 0.06,
+                height: getProportionateScreenHeight(30),
               ),
-              // SizedBox(
-              //   height: getProportionateScreenHeight(20),
-              // ),
               Text(
                 "By continuing your confirm that you agree\nwith our Teerm and Condition",
                 textAlign: TextAlign.center,

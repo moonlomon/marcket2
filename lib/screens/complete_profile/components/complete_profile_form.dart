@@ -5,6 +5,7 @@ import '../../../components/default_button.dart';
 import '../../../components/form_error.dart';
 import '../../../constants.dart';
 import '../../../size_config.dart';
+import '../../otp/otp_screen.dart';
 import '../compleate_profile_screen.dart';
 
 class CompleteProfileForm extends StatefulWidget {
@@ -45,30 +46,30 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
         children: <Widget>[
           buildFirstName(),
           SizedBox(
-            height: getProportionateScreenHeight(20),
+            height: getProportionateScreenHeight(30),
           ),
           buildLastName(),
           SizedBox(
-            height: getProportionateScreenHeight(20),
+            height: getProportionateScreenHeight(30),
           ),
           buildPhoneNumber(),
           SizedBox(
-            height: getProportionateScreenHeight(20),
+            height: getProportionateScreenHeight(30),
           ),
           buildAddress(),
           SizedBox(
-            height: getProportionateScreenHeight(20),
+            height: getProportionateScreenHeight(30),
           ),
           FormError(errors: errors),
           SizedBox(
-            height: getProportionateScreenHeight(20),
+            height: getProportionateScreenHeight(40),
           ),
           DefaultButton(
             text: "Continue",
             press: () {
               if (_formKey.currentState!.validate() && errors.isEmpty) {
                 _formKey.currentState?.save(); // ??
-                print("회원가입 성공!");
+                Navigator.pushNamed(context, OTPScreen.routeName);
               }
             },
           )
@@ -79,10 +80,6 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
 
   TextFormField buildFirstName() {
     return TextFormField(
-      // 텍스트폼필드 속성설정하기
-      keyboardType: TextInputType.visiblePassword,
-      obscureText: true,
-      // * 비밀번호 가리기
       onSaved: (newValue) => firstName = newValue!,
       // ?? !?
       onChanged: (value) {
@@ -114,7 +111,6 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
 
   TextFormField buildLastName() {
     return TextFormField(
-      obscureText: true,
       onSaved: (newValue) => LastName = newValue!,
       onChanged: (value) {
         if (value.isNotEmpty && errors.contains(kLastNamelNullError)) {
@@ -142,7 +138,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
   TextFormField buildPhoneNumber() {
     return TextFormField(
       // 텍스트폼필드 속성설정하기
-      keyboardType: TextInputType.emailAddress,
+      keyboardType: TextInputType.number,
       onSaved: (newValue) => PhoneNumber = newValue!,
       onChanged: (value) {
         if (value.isNotEmpty && errors.contains(kPhoneNumberNullError)) {
@@ -170,8 +166,6 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
 
   TextFormField buildAddress() {
     return TextFormField(
-      // 텍스트폼필드 속성설정하기
-      keyboardType: TextInputType.emailAddress,
       onSaved: (newValue) => Address = newValue!,
       onChanged: (value) {
         if (value.isNotEmpty && errors.contains(kAddressNullError)) {
