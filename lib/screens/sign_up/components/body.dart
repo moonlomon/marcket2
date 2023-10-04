@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:marcket2/constants.dart';
+import 'package:marcket2/screens/otp/otp_screen.dart';
 import 'package:marcket2/screens/sign_up/components/sign_up_form.dart';
 
 import '../../../size_config.dart';
@@ -47,7 +48,9 @@ class Body extends StatelessWidget {
                   ),
                   SocalCard(
                     icon: "assets/icons/facebook-2.svg",
-                    press: () {},
+                    press: () {
+                      Navigator.pushNamed(context, OTPScreen.routeName); // 테스트용 버튼
+                    },
                   ),
                   SocalCard(
                     icon: "assets/icons/twitter.svg",

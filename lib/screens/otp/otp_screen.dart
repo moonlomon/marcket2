@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './components/body.dart';
 
 class OTPScreen extends StatelessWidget {
   const OTPScreen({super.key});
@@ -8,8 +9,12 @@ class OTPScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("오티피"),
+        centerTitle: true,
+        title: Text("OTP Verification"),
+        automaticallyImplyLeading: false,
+        leading: IconButton(icon: Icon(Icons.arrow_back_ios), onPressed: ()=>Navigator.pop(context),),
       ),
+      body: Body(),
     );
   }
 }
