@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../components/default_button.dart';
 import '../../../size_config.dart';
+import '../../home/home_screen.dart';
 import '../../sign_up/sign_up_screen.dart';
 
 class Body extends StatelessWidget {
@@ -9,6 +10,8 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
+
     return Column(
       children: [
         SizedBox(height: SizeConfig.screenHeight * 0.04,),
@@ -29,7 +32,9 @@ class Body extends StatelessWidget {
           width: SizeConfig.screenWidth * 0.6,
           child: DefaultButton(
             text: "Back to home",
-            press: () {},
+            press: () {
+              Navigator.pushNamed(context, HomeScreen.routeName);
+            },
           ),
         ),
         Spacer()

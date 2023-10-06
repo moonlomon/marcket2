@@ -5,7 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:marcket2/constants.dart';
 import 'package:marcket2/screens/forget_password/forget_password_screen.dart';
 import 'package:marcket2/screens/sign_in/components/sign_form.dart';
-import 'package:marcket2/screens/sign_in/components/socal_card.dart';
+import 'package:marcket2/components/socal_card.dart';
 import 'package:marcket2/size_config.dart';
 
 import '../../../components/no_account_text.dart';

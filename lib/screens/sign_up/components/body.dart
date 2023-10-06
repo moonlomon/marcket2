@@ -6,7 +6,7 @@ import 'package:marcket2/screens/sign_up/components/sign_up_form.dart';
 import '../../../size_config.dart';
 import '../../complete_profile/compleate_profile_screen.dart';
 import '../../sign_in/components/sign_form.dart';
-import '../../sign_in/components/socal_card.dart';
+import '../../../components/socal_card.dart';
 
 class Body extends StatelessWidget {
   const Body({super.key});
@@ -49,17 +49,18 @@ class Body extends StatelessWidget {
                   SocalCard(
                     icon: "assets/icons/facebook-2.svg",
                     press: () {
-                      Navigator.pushNamed(context, OTPScreen.routeName); // 테스트용 버튼
+                      // Navigator.pushNamed(context, OTPScreen.routeName); // 테스트용 버튼
                     },
                   ),
                   SocalCard(
                     icon: "assets/icons/twitter.svg",
                     press: () {
-                      Navigator.pushNamed(context, CompleteProfileScreen.routeName); // 테스트용 버튼
+                      // Navigator.pushNamed(context, CompleteProfileScreen.routeName); // 테스트용 버튼
                     },
                   ),
                 ],
               ),
+
               SizedBox(
                 height: getProportionateScreenHeight(20),
               ),

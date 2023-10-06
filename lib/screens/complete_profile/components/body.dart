@@ -3,7 +3,7 @@ import 'package:marcket2/screens/complete_profile/components/complete_profile_fo
 
 import '../../../constants.dart';
 import '../../../size_config.dart';
-import '../../sign_in/components/socal_card.dart';
+import '../../../components/socal_card.dart';
 import '../../sign_up/components/sign_up_form.dart';
 
 class Body extends StatelessWidget {
