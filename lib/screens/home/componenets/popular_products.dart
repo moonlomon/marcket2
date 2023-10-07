@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:marcket2/screens/detail/detail_screen.dart';
 import 'package:marcket2/screens/home/componenets/section_title.dart';
 
 import '../../../components/product_card.dart';
@@ -26,8 +27,10 @@ class PopularProducts extends StatelessWidget {
           child: Row(
             children: [
               ...List.generate(
-                demoProducts.length, (index) => ProductCard(
+                demoProducts.length,
+                    (index) => ProductCard(
                 product: demoProducts[index],
+                press: () => Navigator.pushNamed(context, DetailScreen.routeName),
               ),
               ),
               SizedBox(width: getProportionateScreenWidth(20),)
