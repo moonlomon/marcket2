@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../components/default_button.dart';
 import '../../../size_config.dart';
 import '../../home/home_screen.dart';
-import '../../sign_up/sign_up_screen.dart';
+// import '../../sign_up/sign_up_screen.dart';
 
 class Body extends StatelessWidget {
   const Body({super.key});

@@ -28,12 +28,17 @@ class PopularProducts extends StatelessWidget {
             children: [
               ...List.generate(
                 demoProducts.length,
-                    (index) => ProductCard(
-                product: demoProducts[index],
-                press: () => Navigator.pushNamed(context, DetailScreen.routeName),
+                (index) => ProductCard(
+                  product: demoProducts[index],
+                  press: () => Navigator.pushNamed(
+                      context, DetailScreen.routeName,
+                      arguments: ProductDetailsArguments(
+                          product: demoProducts[index])),
+                ),
               ),
-              ),
-              SizedBox(width: getProportionateScreenWidth(20),)
+              SizedBox(
+                width: getProportionateScreenWidth(20),
+              )
             ],
           ),
         ),

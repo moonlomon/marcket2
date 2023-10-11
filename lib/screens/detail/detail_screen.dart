@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:marcket2/size_config.dart';
-import '../../components/rounded_icon_btn.dart';
+import '../../models/Product.dart';
 import './components/body.dart';
+import 'components/custom_app_bar.dart';
 
 class DetailScreen extends StatelessWidget {
   const DetailScreen({super.key});
@@ -9,15 +9,18 @@ class DetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ProductDetailsArguments arguments = ModalRoute.of(context)?.settings.arguments as ProductDetailsArguments;
     return Scaffold(
       backgroundColor: Color(0xFFF5F6F9),
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        leading: RoundedIconBtn(iconData: Icons.arrow_back_ios, press: () => Navigator.pop(context),),
-      ),
-      body: Body(),
+      appBar: CustomAppbar(arguments.product.rating),
+      body: Body(product: arguments.product),
     );
   }
 }
 
 
+class ProductDetailsArguments {
+  final Product product;
+
+  ProductDetailsArguments({required this.product});
+}
