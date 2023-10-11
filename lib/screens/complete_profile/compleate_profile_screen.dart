@@ -16,6 +16,6 @@ class CompleteProfileScreen extends StatelessWidget {
         leading: IconButton(icon: Icon(Icons.arrow_back_ios), onPressed: (){Navigator.pop(context);}),
       ),
       body: Body(),
-    );;
+    );
   }
 }

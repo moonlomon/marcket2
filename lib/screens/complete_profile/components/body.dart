@@ -18,6 +18,7 @@ class Body extends StatelessWidget {
         EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
         child: SingleChildScrollView(
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               SizedBox(
                 height: SizeConfig.screenHeight * 0.04,

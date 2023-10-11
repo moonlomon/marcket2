@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:marcket2/screens/cart/cart_screen.dart';
 import 'package:marcket2/screens/home/componenets/search_feild.dart';
 
 import '../../../size_config.dart';
@@ -19,7 +20,7 @@ class HomeHeader extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           SearchFeild(),
-          IconBtnWithCounter(svgSrc: "assets/icons/Cart Icon.svg", press: (){},),
+          IconBtnWithCounter(svgSrc: "assets/icons/Cart Icon.svg", press: () => Navigator.pushNamed(context, CartScreen.routeName),),
           IconBtnWithCounter(svgSrc: "assets/icons/Bell.svg", press: (){}, numOfItem: 3,),
         ],
       ),

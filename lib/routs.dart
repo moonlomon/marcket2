@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:marcket2/screens/cart/cart_screen.dart';
 import 'package:marcket2/screens/complete_profile/compleate_profile_screen.dart';
 import 'package:marcket2/screens/detail/detail_screen.dart';
 import 'package:marcket2/screens/forget_password/forget_password_screen.dart';
@@ -20,4 +21,5 @@ final Map<String, WidgetBuilder> routes = {
   OTPScreen.routeName: (context) => OTPScreen(),
   HomeScreen.routeName: (context) => HomeScreen(),
   DetailScreen.routeName: (context) => DetailScreen(),
+  CartScreen.routeName: (context) => CartScreen(),
 };
